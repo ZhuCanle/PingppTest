@@ -1,0 +1,1 @@
+../../../Pingpp/lib/Channels/Bfb/Dependencies/SDWebImage/UIImage+GIF.h

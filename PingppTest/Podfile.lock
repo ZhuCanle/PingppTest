@@ -1,0 +1,50 @@
+PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Masonry (0.6.1)
+  - Pingpp (2.0.5):
+    - Pingpp/Alipay (= 2.0.5)
+    - Pingpp/Bfb (= 2.0.5)
+    - Pingpp/Core (= 2.0.5)
+    - Pingpp/UnionPay (= 2.0.5)
+    - Pingpp/Wx (= 2.0.5)
+  - Pingpp/Alipay (2.0.5):
+    - Pingpp/Core
+  - Pingpp/Bfb (2.0.5):
+    - Pingpp/Core
+  - Pingpp/Core (2.0.5)
+  - Pingpp/UnionPay (2.0.5):
+    - Pingpp/Core
+  - Pingpp/Wx (2.0.5):
+    - Pingpp/Core
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.5.4)
+  - Masonry (~> 0.6.1)
+  - Pingpp (~> 2.0.5)
+
+SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  Pingpp: 85fe5b5421c3c774deaa38943cbbff8dbe82c76c
+
+COCOAPODS: 0.37.2
