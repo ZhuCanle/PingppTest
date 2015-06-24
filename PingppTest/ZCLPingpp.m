@@ -9,12 +9,7 @@
 #import "ZCLPingpp.h"
 
 @implementation ZCLPingpp
-{
-    NSString *_charge;
-//    NSDictionary *_chargeDic;
-}
 
-#pragma mark - API
 + (void)payWithURL:(NSString *)urlString parament:(NSDictionary *)parament viewController:(UIViewController *)viewController appURLScheme:(NSString *)URLScheme success:(void (^)(NSString *))success failure:(void (^)(NSString *))failure
 {
     // 获取charge

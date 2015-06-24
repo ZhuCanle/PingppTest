@@ -11,18 +11,20 @@
 #import <AFNetworking.h>
 #import <Pingpp.h>
 #import <Masonry.h>
+#import <UMSocial.h>
 
 #import "ZCLPingpp.h"
 #import "UIView+ZCLQuickControl.h"
 
 #define URL_SCHEME @"pinggongnengceshidd"
 
-@interface ViewController () <UIActionSheetDelegate>
+@interface ViewController () <UIActionSheetDelegate,UMSocialUIDelegate>
 {
     ZCLPingpp *_zclPingpp;
     
     UITextField *_urlTF;
     UITextField *_amountTF;
+    UITextView *_shareTV;
     UIButton *_aliPayBtn;
     UIButton *_unionPayBtn;
     UIButton *_wechatPayBtn;
@@ -88,6 +90,18 @@
         make.height.mas_equalTo(@28);
         make.width.mas_equalTo(@230);
     }];
+    
+    // 分享文本框
+    _shareTV = [[UITextView alloc] init];
+    _shareTV.layer.borderWidth = 1;
+    _shareTV.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    [self.view addSubview:_shareTV];
+    [_shareTV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(@(330));
+        make.left.mas_equalTo(@100);
+        make.height.mas_equalTo(@80);
+        make.width.mas_equalTo(@230);
+    }];
 }
 
 - (void)createButton
@@ -109,11 +123,11 @@
     _payBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(260, 280, 60, 30) title:@"支付" titleColor:[UIColor blackColor] fontSize:17 fontName:nil aligmentType:NSTextAlignmentCenter];
     [_payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    _shareBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(200, 350, 60, 30) title:@"分享" titleColor:[UIColor blueColor] fontSize:17 fontName:nil aligmentType:NSTextAlignmentCenter];
+    _shareBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(200, 430, 60, 30) title:@"分享" titleColor:[UIColor blueColor] fontSize:17 fontName:nil aligmentType:NSTextAlignmentCenter];
     [_shareBtn addTarget:self action:@selector(shareBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-#pragma mark - 响应
+#pragma mark - UIButton响应
 - (void)btnClick:(UIButton *)button
 {
     _aliPayBtn.selected = NO;
@@ -161,6 +175,38 @@
 {
     [_urlTF resignFirstResponder];
     [_amountTF resignFirstResponder];
+    [_shareBtn resignFirstResponder];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex)
+    {
+        case 0:
+        {
+            //注意：分享到微信好友、微信朋友圈、微信收藏、QQ空间、QQ好友、来往好友、来往朋友圈、易信好友、易信朋友圈、Facebook、Twitter、Instagram等平台需要参考各自的集成方法
+            [[UMSocialControllerService defaultControllerService] setShareText:_shareTV.text shareImage:[UIImage imageNamed:@"icon"] socialUIDelegate:self];
+            //设置分享内容和回调对象
+            [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatTimeline].snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
+            break;
+        }
+        case 1:
+        {
+
+            [[UMSocialControllerService defaultControllerService] setShareText:_shareTV.text shareImage:[UIImage imageNamed:@"icon"] socialUIDelegate:self];
+            [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ].snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
+            break;
+        }
+        case 2:
+        {
+            [[UMSocialControllerService defaultControllerService] setShareText:_shareTV.text shareImage:[UIImage imageNamed:@"icon"] socialUIDelegate:self];
+            [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSms].snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 

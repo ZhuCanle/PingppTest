@@ -18,6 +18,8 @@
 		ED2711081B3A589700B1E1BA /* ZCLPingpp.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2711071B3A589700B1E1BA /* ZCLPingpp.m */; };
 		ED27110C1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27110B1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m */; };
 		ED27110F1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27110E1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m */; };
+		ED2711121B3AA02900B1E1BA /* ZCLUMSocialQuickControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2711111B3AA02900B1E1BA /* ZCLUMSocialQuickControl.m */; };
+		ED2711161B3AAA4C00B1E1BA /* UMSocial_Sdk_Extra_Frameworks in Resources */ = {isa = PBXBuildFile; fileRef = ED2711151B3AAA4C00B1E1BA /* UMSocial_Sdk_Extra_Frameworks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		ED27110B1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZCLQuickControl.m"; sourceTree = "<group>"; };
 		ED27110D1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ZCLQuickControl.h"; sourceTree = "<group>"; };
 		ED27110E1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ZCLQuickControl.m"; sourceTree = "<group>"; };
+		ED2711101B3AA02900B1E1BA /* ZCLUMSocialQuickControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLUMSocialQuickControl.h; sourceTree = "<group>"; };
+		ED2711111B3AA02900B1E1BA /* ZCLUMSocialQuickControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLUMSocialQuickControl.m; sourceTree = "<group>"; };
+		ED2711151B3AAA4C00B1E1BA /* UMSocial_Sdk_Extra_Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UMSocial_Sdk_Extra_Frameworks; sourceTree = "<group>"; };
 		FDDFDE0C5D1F5AEE84B39488 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +99,8 @@
 		ED2710D01B3A4D9900B1E1BA = {
 			isa = PBXGroup;
 			children = (
+				ED2711141B3AAA2200B1E1BA /* DevelopLib */,
+				ED2711131B3AA03200B1E1BA /* ZCLUMsocialQuickControl */,
 				ED2711091B3A7D5000B1E1BA /* UIView+ZCLQuickControl */,
 				ED2711021B3A4DCD00B1E1BA /* ZCLPingpp */,
 				ED2710DB1B3A4D9900B1E1BA /* PingppTest */,
@@ -172,6 +179,23 @@
 				ED27110E1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m */,
 			);
 			name = "UIView+ZCLQuickControl";
+			sourceTree = "<group>";
+		};
+		ED2711131B3AA03200B1E1BA /* ZCLUMsocialQuickControl */ = {
+			isa = PBXGroup;
+			children = (
+				ED2711101B3AA02900B1E1BA /* ZCLUMSocialQuickControl.h */,
+				ED2711111B3AA02900B1E1BA /* ZCLUMSocialQuickControl.m */,
+			);
+			name = ZCLUMsocialQuickControl;
+			sourceTree = "<group>";
+		};
+		ED2711141B3AAA2200B1E1BA /* DevelopLib */ = {
+			isa = PBXGroup;
+			children = (
+				ED2711151B3AAA4C00B1E1BA /* UMSocial_Sdk_Extra_Frameworks */,
+			);
+			name = DevelopLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +282,7 @@
 			files = (
 				ED2710E81B3A4D9900B1E1BA /* Main.storyboard in Resources */,
 				ED2710ED1B3A4D9900B1E1BA /* LaunchScreen.xib in Resources */,
+				ED2711161B3AAA4C00B1E1BA /* UMSocial_Sdk_Extra_Frameworks in Resources */,
 				ED2710EA1B3A4D9900B1E1BA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +336,7 @@
 			files = (
 				ED2710E51B3A4D9900B1E1BA /* ViewController.m in Sources */,
 				ED2711081B3A589700B1E1BA /* ZCLPingpp.m in Sources */,
+				ED2711121B3AA02900B1E1BA /* ZCLUMSocialQuickControl.m in Sources */,
 				ED2710E21B3A4D9900B1E1BA /* AppDelegate.m in Sources */,
 				ED27110F1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m in Sources */,
 				ED2710DF1B3A4D9900B1E1BA /* main.m in Sources */,

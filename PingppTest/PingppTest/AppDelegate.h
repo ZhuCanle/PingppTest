@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <UMSocial.h>
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

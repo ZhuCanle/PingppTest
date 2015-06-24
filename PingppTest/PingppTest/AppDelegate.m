@@ -19,13 +19,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [UMSocialData setAppKey:@"558a69b267e58eeaa3002d5e"];
+    //设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [UMSocialSnsService handleOpenURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
+         annotation:(id)annotation
+{
     [Pingpp handleOpenURL:url
            withCompletion:^(NSString *result, PingppError *error) {
                if ([result isEqualToString:@"success"]) {
@@ -34,8 +46,8 @@
                    // 支付失败或取消
                    NSLog(@"Error: code=%lu msg=%@", error.code, [error getMsg]);
                }
-           }];
-    return  YES;
+    }];
+    return  [UMSocialSnsService handleOpenURL:url];;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
