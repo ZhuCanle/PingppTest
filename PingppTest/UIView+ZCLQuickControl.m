@@ -2,7 +2,7 @@
 //  UIView+ZCLQuickControl.m
 //  PingppTest
 //
-//  Created by lwj on 15/6/24.
+//  Created by ZhuCanle on 15/6/24.
 //  Copyright (c) 2015年 root. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 - (UIButton *)addCustomButtonAtNormalStateWithFrame:(CGRect)frame imageName:(NSString *)imageName title:(NSString *)title titleColor:(UIColor *)color fontSize:(CGFloat)size fontName:(NSString *)font aligmentType:(NSTextAlignment)aligment
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setState:UIControlStateNormal imageName:imageName title:title];
+    button.frame = frame;
+    [button setState:UIControlStateNormal imageName:imageName title:title titleColor:color];
     button.titleLabel.font = [UIFont fontWithName:font size:size];
-    button.titleLabel.textColor = color;
     button.titleLabel.textAlignment = aligment;
     [self addSubview:button];
     
@@ -25,9 +25,10 @@
 - (UIButton *)addSystemButtonAtNormalStateWithFrame:(CGRect)frame title:(NSString *)title titleColor:(UIColor *)color fontSize:(CGFloat)size fontName:(NSString *)font aligmentType:(NSTextAlignment)aligment
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = frame;
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont fontWithName:font size:size];
-    button.titleLabel.textColor = color;
+    [button setTitleColor:color forState:UIControlStateNormal];
     button.titleLabel.textAlignment = aligment;
     [self addSubview:button];
     

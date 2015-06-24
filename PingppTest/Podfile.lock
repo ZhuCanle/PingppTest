@@ -36,15 +36,18 @@ PODS:
     - Pingpp/Core
   - Pingpp/Wx (2.0.5):
     - Pingpp/Core
+  - UMengSocial (4.2.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - Masonry (~> 0.6.1)
   - Pingpp (~> 2.0.5)
+  - UMengSocial (~> 4.2.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   Pingpp: 85fe5b5421c3c774deaa38943cbbff8dbe82c76c
+  UMengSocial: 85882abe5b20aa38ad558ece71360e16b5d50909
 
 COCOAPODS: 0.37.2

@@ -13,8 +13,11 @@
 #import <Masonry.h>
 
 #import "ZCLPingpp.h"
+#import "UIView+ZCLQuickControl.h"
 
-@interface ViewController ()
+#define URL_SCHEME @"pinggongnengceshidd"
+
+@interface ViewController () <UIActionSheetDelegate>
 {
     ZCLPingpp *_zclPingpp;
     
@@ -24,6 +27,10 @@
     UIButton *_unionPayBtn;
     UIButton *_wechatPayBtn;
     UIButton *_baiduPayBtn;
+    UIButton *_payBtn;
+    UIButton *_shareBtn;
+    
+    NSString *_channel;
 }
 
 @end
@@ -51,7 +58,6 @@
     
     [self createTextField];
     [self createButton];
-    
 }
 
 - (void)createTextField
@@ -86,7 +92,76 @@
 
 - (void)createButton
 {
+    _aliPayBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(30, 240, 60, 30) title:@"支付宝" titleColor:[UIColor redColor] fontSize:15 fontName:nil aligmentType:NSTextAlignmentCenter];
+    [_aliPayBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _aliPayBtn.selected = YES;
+    _channel = @"alipay";
     
+    _unionPayBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(100, 240, 60, 30) title:@"银联" titleColor:[UIColor redColor] fontSize:15 fontName:nil aligmentType:NSTextAlignmentCenter];
+    [_unionPayBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _wechatPayBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(170, 240, 60, 30) title:@"微信" titleColor:[UIColor redColor] fontSize:15 fontName:nil aligmentType:NSTextAlignmentCenter];
+    [_wechatPayBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _baiduPayBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(240, 240, 60, 30) title:@"百度" titleColor:[UIColor redColor] fontSize:15 fontName:nil aligmentType:NSTextAlignmentCenter];
+    [_baiduPayBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _payBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(260, 280, 60, 30) title:@"支付" titleColor:[UIColor blackColor] fontSize:17 fontName:nil aligmentType:NSTextAlignmentCenter];
+    [_payBtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _shareBtn = [self.view addSystemButtonAtNormalStateWithFrame:CGRectMake(200, 350, 60, 30) title:@"分享" titleColor:[UIColor blueColor] fontSize:17 fontName:nil aligmentType:NSTextAlignmentCenter];
+    [_shareBtn addTarget:self action:@selector(shareBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+#pragma mark - 响应
+- (void)btnClick:(UIButton *)button
+{
+    _aliPayBtn.selected = NO;
+    _unionPayBtn.selected = NO;
+    _wechatPayBtn.selected = NO;
+    _baiduPayBtn.selected = NO;
+    
+    button.selected = YES;
+    
+    if(button==_aliPayBtn)
+    {
+        _channel = @"alipay";
+    }
+    else if(button==_unionPayBtn)
+    {
+        _channel = @"unionpay";
+    }
+    else if(button==_wechatPayBtn)
+    {
+        _channel = @"wechat";
+    }
+    else
+    {
+        _channel = @"baidu";
+    }
+}
+
+- (void)payBtnClick:(UIButton *)btn
+{
+    [ZCLPingpp payWithURL:_urlTF.text parament:@{@"channel":_channel,@"amount":_amountTF.text} viewController:self appURLScheme:URL_SCHEME success:^(NSString *result) {
+        NSLog(@"success");
+    } failure:^(NSString *result) {
+        NSLog(@"failure");
+    }];
+}
+
+- (void)shareBtnClick:(UIButton *)button
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"微信朋友圈",@"QQ空间",@"短信", nil];
+    sheet.delegate = self;
+    [sheet showInView:self.view];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_urlTF resignFirstResponder];
+    [_amountTF resignFirstResponder];
+}
+
 
 @end
