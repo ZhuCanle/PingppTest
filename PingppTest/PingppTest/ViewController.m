@@ -11,7 +11,12 @@
 #import <AFNetworking.h>
 #import <Pingpp.h>
 
+#import "ZCLPingpp.h"
+
 @interface ViewController ()
+{
+    ZCLPingpp *_zclPingpp;
+}
 
 @end
 
@@ -21,21 +26,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    //交易数据字典转字符串再转NSData
-    NSDictionary *dic = @{@"chanel":@"alipay",@"amount":@1};
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *bodyStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSData *paraData = [NSData dataWithBytes:[bodyStr UTF8String] length:strlen([bodyStr UTF8String])];
-    
-    //上传
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [manager POST:@"http://" parameters:paraData success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *chargeDic = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONReadingMutableContainers error:nil];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
-    }];
+    _zclPingpp = [[ZCLPingpp alloc] init];
+    //_zclPingpp payWithURL:<#(NSString *)#> parament:<#(NSDictionary *)#> viewController:<#(UIViewController *)#> appURLScheme:<#(NSString *)#>
 }
 
 - (void)didReceiveMemoryWarning {

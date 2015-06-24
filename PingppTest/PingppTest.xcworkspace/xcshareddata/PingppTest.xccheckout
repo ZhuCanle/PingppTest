@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>35F02485-0FD2-4C2C-BDE7-BD85644D0B71</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PingppTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BD4C8376C8FE8E245EFAD2E706F8982CD3791F9F</key>
+		<string>https://github.com/ZhuCanle/PingppTest.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PingppTest/PingppTest.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BD4C8376C8FE8E245EFAD2E706F8982CD3791F9F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ZhuCanle/PingppTest.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BD4C8376C8FE8E245EFAD2E706F8982CD3791F9F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD4C8376C8FE8E245EFAD2E706F8982CD3791F9F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PingppTest</string>
+		</dict>
+	</array>
+</dict>
+</plist>

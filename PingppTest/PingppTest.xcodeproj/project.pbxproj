@@ -15,6 +15,7 @@
 		ED2710EA1B3A4D9900B1E1BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED2710E91B3A4D9900B1E1BA /* Images.xcassets */; };
 		ED2710ED1B3A4D9900B1E1BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2710EB1B3A4D9900B1E1BA /* LaunchScreen.xib */; };
 		ED2710F91B3A4D9900B1E1BA /* PingppTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2710F81B3A4D9900B1E1BA /* PingppTestTests.m */; };
+		ED2711081B3A589700B1E1BA /* ZCLPingpp.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2711071B3A589700B1E1BA /* ZCLPingpp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		ED2710F21B3A4D9900B1E1BA /* PingppTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PingppTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2710F71B3A4D9900B1E1BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED2710F81B3A4D9900B1E1BA /* PingppTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingppTestTests.m; sourceTree = "<group>"; };
+		ED2711061B3A589700B1E1BA /* ZCLPingpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLPingpp.h; sourceTree = "<group>"; };
+		ED2711071B3A589700B1E1BA /* ZCLPingpp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLPingpp.m; sourceTree = "<group>"; };
 		FDDFDE0C5D1F5AEE84B39488 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +150,8 @@
 		ED2711021B3A4DCD00B1E1BA /* ZCLPingpp */ = {
 			isa = PBXGroup;
 			children = (
+				ED2711061B3A589700B1E1BA /* ZCLPingpp.h */,
+				ED2711071B3A589700B1E1BA /* ZCLPingpp.m */,
 			);
 			name = ZCLPingpp;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED2710E51B3A4D9900B1E1BA /* ViewController.m in Sources */,
+				ED2711081B3A589700B1E1BA /* ZCLPingpp.m in Sources */,
 				ED2710E21B3A4D9900B1E1BA /* AppDelegate.m in Sources */,
 				ED2710DF1B3A4D9900B1E1BA /* main.m in Sources */,
 			);
