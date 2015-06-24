@@ -14,12 +14,12 @@
 //    NSDictionary *_chargeDic;
 }
 
+#pragma mark - API
 - (id)payWithURL:(NSString *)urlString parament:(NSDictionary *)parament viewController:(UIViewController *)viewController appURLScheme:(NSString *)URLScheme success:(void (^)(NSString *))success failure:(void (^)(NSString *))failure
 {
     // 初始化本对象
     if(self==[super init])
     {
-    
         // 获取charge
         [self getChargeWithURL:urlString parament:parament];
     
@@ -45,6 +45,7 @@
     return self;
 }
 
+#pragma mark - 自用方法
 - (void)getChargeWithURL:(NSString *)urlString parament:(NSDictionary *)parament
 {
     // 交易要素字典转字符串再转NSData

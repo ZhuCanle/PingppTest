@@ -10,29 +10,69 @@
 
 #import <AFNetworking.h>
 #import <Pingpp.h>
+#import <Masonry.h>
 
 #import "ZCLPingpp.h"
 
 @interface ViewController ()
 {
     ZCLPingpp *_zclPingpp;
+    
+    UITextField *_urlTF;
+    UITextField *_amountTF;
+    UIButton *_aliPayBtn;
+    UIButton *_unionPayBtn;
+    UIButton *_wechatPayBtn;
+    UIButton *_baiduPayBtn;
 }
 
 @end
 
 @implementation ViewController
 
+#pragma mark - VC生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _zclPingpp = [[ZCLPingpp alloc] init];
-    //_zclPingpp payWithURL:<#(NSString *)#> parament:<#(NSDictionary *)#> viewController:<#(UIViewController *)#> appURLScheme:<#(NSString *)#>
+    // 创建UI
+    [self createUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 
+- (void)createUI
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    _urlTF = [[UITextField alloc] init];
+    _urlTF.layer.borderWidth = 1;
+    _urlTF.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    _urlTF.placeholder = @"URL";
+    _urlTF
+    [self.view addSubview:_urlTF];
+    [_urlTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(@(88));
+        make.left.mas_equalTo(@100);
+        make.height.mas_equalTo(@28);
+        make.width.mas_equalTo(@230);
+    }];
+    
+    _amountTF = [[UITextField alloc] init];
+    _amountTF.layer.borderWidth = 1;
+    _amountTF.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    _amountTF.placeholder = @"金额";
+    [self.view addSubview:_amountTF];
+    [_amountTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(@(180));
+        make.left.mas_equalTo(@100);
+        make.height.mas_equalTo(@28);
+        make.width.mas_equalTo(@230);
+    }];
 }
 
 @end
