@@ -16,6 +16,8 @@
 		ED2710ED1B3A4D9900B1E1BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2710EB1B3A4D9900B1E1BA /* LaunchScreen.xib */; };
 		ED2710F91B3A4D9900B1E1BA /* PingppTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2710F81B3A4D9900B1E1BA /* PingppTestTests.m */; };
 		ED2711081B3A589700B1E1BA /* ZCLPingpp.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2711071B3A589700B1E1BA /* ZCLPingpp.m */; };
+		ED27110C1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27110B1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m */; };
+		ED27110F1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27110E1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		ED2710F81B3A4D9900B1E1BA /* PingppTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingppTestTests.m; sourceTree = "<group>"; };
 		ED2711061B3A589700B1E1BA /* ZCLPingpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLPingpp.h; sourceTree = "<group>"; };
 		ED2711071B3A589700B1E1BA /* ZCLPingpp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLPingpp.m; sourceTree = "<group>"; };
+		ED27110A1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZCLQuickControl.h"; sourceTree = "<group>"; };
+		ED27110B1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZCLQuickControl.m"; sourceTree = "<group>"; };
+		ED27110D1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ZCLQuickControl.h"; sourceTree = "<group>"; };
+		ED27110E1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ZCLQuickControl.m"; sourceTree = "<group>"; };
 		FDDFDE0C5D1F5AEE84B39488 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +94,7 @@
 		ED2710D01B3A4D9900B1E1BA = {
 			isa = PBXGroup;
 			children = (
+				ED2711091B3A7D5000B1E1BA /* UIView+ZCLQuickControl */,
 				ED2711021B3A4DCD00B1E1BA /* ZCLPingpp */,
 				ED2710DB1B3A4D9900B1E1BA /* PingppTest */,
 				ED2710F51B3A4D9900B1E1BA /* PingppTestTests */,
@@ -154,6 +161,17 @@
 				ED2711071B3A589700B1E1BA /* ZCLPingpp.m */,
 			);
 			name = ZCLPingpp;
+			sourceTree = "<group>";
+		};
+		ED2711091B3A7D5000B1E1BA /* UIView+ZCLQuickControl */ = {
+			isa = PBXGroup;
+			children = (
+				ED27110A1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.h */,
+				ED27110B1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m */,
+				ED27110D1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.h */,
+				ED27110E1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m */,
+			);
+			name = "UIView+ZCLQuickControl";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +312,9 @@
 				ED2710E51B3A4D9900B1E1BA /* ViewController.m in Sources */,
 				ED2711081B3A589700B1E1BA /* ZCLPingpp.m in Sources */,
 				ED2710E21B3A4D9900B1E1BA /* AppDelegate.m in Sources */,
+				ED27110F1B3A8A1500B1E1BA /* UIButton+ZCLQuickControl.m in Sources */,
 				ED2710DF1B3A4D9900B1E1BA /* main.m in Sources */,
+				ED27110C1B3A7DC000B1E1BA /* UIView+ZCLQuickControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

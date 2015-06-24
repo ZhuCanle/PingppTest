@@ -15,39 +15,9 @@
 }
 
 #pragma mark - API
-- (id)payWithURL:(NSString *)urlString parament:(NSDictionary *)parament viewController:(UIViewController *)viewController appURLScheme:(NSString *)URLScheme success:(void (^)(NSString *))success failure:(void (^)(NSString *))failure
++ (void)payWithURL:(NSString *)urlString parament:(NSDictionary *)parament viewController:(UIViewController *)viewController appURLScheme:(NSString *)URLScheme success:(void (^)(NSString *))success failure:(void (^)(NSString *))failure
 {
-    // 初始化本对象
-    if(self==[super init])
-    {
-        // 获取charge
-        [self getChargeWithURL:urlString parament:parament];
-    
-        // 接入
-        [Pingpp createPayment:_charge
-           viewController:viewController
-             appURLScheme:URLScheme
-           withCompletion:^(NSString *result, PingppError *error) {
-               if ([result isEqualToString:@"success"]) {
-                   // 支付成功,执行success block中的操作
-                   success(result);
-               } else {
-                   // 支付失败或取消
-                   NSLog(@"Error: code=%lu msg=%@", error.code, [error getMsg]);
-                   // 执行failure block中的操作
-                   failure(result);
-               }
-        }];
-    
-        // 接收并处理交易结果
-        
-    }
-    return self;
-}
-
-#pragma mark - 自用方法
-- (void)getChargeWithURL:(NSString *)urlString parament:(NSDictionary *)parament
-{
+    // 获取charge
     // 交易要素字典转字符串再转NSData
     NSData *data = [NSJSONSerialization dataWithJSONObject:parament options:NSJSONWritingPrettyPrinted error:nil];
     NSString *bodyStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -59,10 +29,25 @@
     [manager POST:@"http://" parameters:paraData success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *chargeDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSData *chargeData = [NSJSONSerialization dataWithJSONObject:chargeDic options:NSJSONWritingPrettyPrinted error:nil];
-        _charge = [[NSString alloc] initWithData:chargeData encoding:NSUTF8StringEncoding];
+        NSString *charge = [[NSString alloc] initWithData:chargeData encoding:NSUTF8StringEncoding];
+        // 接入
+        [Pingpp createPayment:charge
+               viewController:viewController
+                 appURLScheme:URLScheme
+               withCompletion:^(NSString *result, PingppError *error) {
+                   if ([result isEqualToString:@"success"]) {
+                       // 支付成功,执行success block中的操作
+                       success(result);
+                   } else {
+                       // 支付失败或取消
+                       NSLog(@"Error: code=%lu msg=%@", error.code, [error getMsg]);
+                       // 执行failure block中的操作
+                       failure(result);
+                   }
+        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败");
-        _charge = nil;
+        
     }];
 }
 

@@ -14,6 +14,6 @@
 @interface ZCLPingpp : NSObject
 
 //App服务器地址、交易要素字典、viewController、URLScheme、交易成功后的操作、交易失败后的操作
-- (id)payWithURL:(NSString *)urlString parament:(NSDictionary *)parament viewController:(UIViewController *)viewController appURLScheme:(NSString *)URLScheme success:(void (^)(NSString *result))success failure:(void (^)(NSString *result))failure;
++ (void)payWithURL:(NSString *)urlString parament:(NSDictionary *)parament viewController:(UIViewController *)viewController appURLScheme:(NSString *)URLScheme success:(void (^)(NSString *result))success failure:(void (^)(NSString *result))failure;
 
 @end
